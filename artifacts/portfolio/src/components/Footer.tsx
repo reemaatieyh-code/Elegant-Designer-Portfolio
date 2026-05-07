@@ -1,75 +1,74 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 
-const socialLinks = [
+const socials = [
   { Icon: Instagram, href: "#", label: "Instagram" },
   { Icon: Linkedin, href: "#", label: "LinkedIn" },
   { Icon: Twitter, href: "#", label: "Twitter" },
 ];
 
-const footerNav = [
-  { label: "Work", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
-];
+const footerLinks = ["Work", "About", "Services", "Process", "Contact"];
 
 export default function Footer() {
-  const handleNav = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const nav = (href: string) => {
+    const id = href === "Work" ? "portfolio" : href.toLowerCase();
+    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer
-      data-testid="footer"
-      className="bg-foreground text-background py-16 px-6"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 pb-10 border-b border-background/10">
-          <div>
-            <p className="font-serif text-2xl tracking-widest uppercase">
-              Reema Atieh
-            </p>
-            <p className="font-sans text-xs text-background/50 mt-1 tracking-widest uppercase">
-              Graphic Designer · Kuwait
+    <footer data-testid="footer" className="border-t border-border section-pad py-16">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-14 border-b border-border">
+          {/* Brand */}
+          <div className="flex flex-col gap-4">
+            <p className="font-serif text-2xl tracking-[0.08em] uppercase text-foreground">Reema Atieh</p>
+            <p className="label-sm">Graphic Designer · Art Director · Kuwait</p>
+            <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed max-w-xs">
+              Creating purposeful design for brands that want to stand out — and stand for something.
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-8">
-            {footerNav.map((link) => (
-              <button
-                key={link.href}
-                data-testid={`footer-nav-${link.label.toLowerCase()}`}
-                onClick={() => handleNav(link.href)}
-                className="font-sans text-xs tracking-widest uppercase text-background/50 hover:text-background transition-colors duration-300"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
+          {/* Navigation */}
+          <div className="flex flex-col gap-4">
+            <p className="label-sm">Navigation</p>
+            <nav className="flex flex-col gap-3">
+              {footerLinks.map((link) => (
+                <button
+                  key={link}
+                  data-testid={`footer-nav-${link.toLowerCase()}`}
+                  onClick={() => nav(link)}
+                  className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 text-left font-light"
+                >
+                  {link}
+                </button>
+              ))}
+            </nav>
+          </div>
 
-          <div className="flex gap-5">
-            {socialLinks.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                data-testid={`footer-social-${label.toLowerCase()}`}
-                className="w-9 h-9 border border-background/20 flex items-center justify-center text-background/50 hover:text-background hover:border-background transition-colors duration-300"
-              >
-                <Icon size={15} strokeWidth={1.5} />
-              </a>
-            ))}
+          {/* Social */}
+          <div className="flex flex-col gap-4">
+            <p className="label-sm">Follow Along</p>
+            <div className="flex gap-3">
+              {socials.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  data-testid={`footer-social-${label.toLowerCase()}`}
+                  className="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-300"
+                >
+                  <Icon size={15} strokeWidth={1.5} />
+                </a>
+              ))}
+            </div>
+            <p className="font-sans text-sm text-muted-foreground font-light mt-2">
+              hello@reemaatieh.com
+            </p>
           </div>
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-xs text-background/30">
-            &copy; {new Date().getFullYear()} Reema Atieh. All rights reserved.
-          </p>
-          <p className="font-sans text-xs text-background/20 italic">
-            Designed with intention.
-          </p>
+          <p className="label-sm">&copy; {new Date().getFullYear()} Reema Atieh. All rights reserved.</p>
+          <p className="font-serif text-sm italic text-muted-foreground">Designed with intention.</p>
         </div>
       </div>
     </footer>

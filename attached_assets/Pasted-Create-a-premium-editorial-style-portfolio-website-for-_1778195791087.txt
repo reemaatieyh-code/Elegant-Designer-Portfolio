@@ -1,0 +1,170 @@
+Create a premium editorial-style portfolio website for graphic designer Reema Atieh.
+
+The website aesthetic must feel like a luxury creative studio mixed with a modern fashion editorial magazine.
+
+STYLE & MOOD:
+
+* Minimal
+* Elegant
+* Sophisticated
+* Editorial
+* Artistic
+* Spacious
+* High-end
+* Modern Swiss-inspired layout
+* Luxury typography
+* Clean but visually powerful
+
+COLOR SYSTEM:
+
+* Main background: warm soft ivory #F5F2ED
+* Primary text: deep charcoal #171312
+* Secondary text: muted gray #6F6964
+* Accent color: terracotta orange #E76A43
+* Borders/dividers: #D7D0C9
+
+TYPOGRAPHY:
+Use elegant editorial serif typography for headings:
+
+* Cormorant Garamond or similar
+* Large dramatic typography
+* Thin elegant letterforms
+
+Use modern sans-serif for body text:
+
+* Inter or similar
+
+TYPOGRAPHY STYLE:
+
+* Huge hero typography
+* Large whitespace
+* Tight heading line-height
+* Elegant spacing
+* Small uppercase labels with wide letter spacing
+
+LAYOUT:
+
+* Editorial asymmetrical layout
+* Very spacious sections
+* Large margins and padding
+* Minimal UI
+* Clean grid system
+* Left aligned hero typography
+* Right aligned intro paragraph
+* Thin dividers
+* Soft elegant transitions
+
+NAVBAR:
+Minimal top navigation with:
+
+* Reema logo on left
+* Center navigation links
+* CTA button on right
+
+Navigation links:
+
+* Work
+* About
+* Services
+* Process
+* Contact
+
+HOMEPAGE HERO:
+Small uppercase label:
+“GRAPHIC DESIGNER & ART DIRECTOR · BASED IN KUWAIT”
+
+Huge serif heading:
+“Reema Atieh.”
+
+Right side paragraph:
+“I’m Reema Atieh, a Kuwait-based graphic designer specializing in visual identity, social media design, packaging, editorial design, animation, and website visuals.”
+
+Buttons:
+
+* View Work
+* Let’s Collaborate
+
+PORTFOLIO CATEGORIES SECTION:
+Create a luxury editorial category section with large serif typography.
+
+Categories:
+
+* Social Media Design
+* Packaging Design
+* Editorial Design
+* Animation / Motion Design
+* Website & Digital Design
+* Branding / Visual Identity
+
+Use horizontal layout with decorative terracotta star icons between categories.
+
+PROJECTS SECTION:
+Create large editorial project cards with:
+
+* Large image placeholders/mockups
+* Minimal typography
+* Elegant spacing
+* Thin borders
+* Hover animations
+* Category labels
+* Year
+* Short descriptions
+* View Case Study button
+
+CASE STUDY PAGES:
+Each project should open a premium editorial case study page with:
+
+* Hero image
+* Project overview
+* Typography system
+* Color palette
+* Mockups
+* Large spacing
+* Smooth scrolling
+* Alternating layouts
+
+MOTION:
+Use subtle premium animations only:
+
+* fade up
+* smooth reveal
+* slow hover movement
+* elegant transitions
+
+Avoid:
+
+* flashy animations
+* heavy gradients
+* neon colors
+* glassmorphism
+* excessive shadows
+
+BUTTON STYLE:
+Primary:
+
+* dark background
+* white text
+* uppercase
+* letter spacing
+
+Secondary:
+
+* transparent background
+* thin border
+
+VISUAL DETAILS:
+
+* Thin lines
+* Small terracotta accent dots/stars
+* Large whitespace
+* Elegant editorial composition
+* Premium luxury portfolio feel
+
+RESPONSIVE:
+Must look beautiful on:
+
+* desktop
+* tablet
+* mobile
+
+The final website should feel like a modern editorial fashion-inspired portfolio for a high-end graphic designer.

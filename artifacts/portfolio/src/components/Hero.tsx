@@ -1,111 +1,111 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 export default function Hero() {
   const scrollToWork = () => {
-    const el = document.querySelector("#portfolio");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       data-testid="hero-section"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background px-6"
+      className="relative min-h-screen flex flex-col justify-end section-pad pt-36 overflow-hidden"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-8 w-px h-32 bg-primary/20" />
-        <div className="absolute top-1/4 right-8 w-px h-32 bg-primary/20" />
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px bg-border"
-          style={{ bottom: "10%" }}
-        />
-      </div>
-
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.p
-          className="font-sans text-xs tracking-[0.35em] uppercase text-primary mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          data-testid="hero-location"
-        >
-          Kuwait · Graphic Designer
-        </motion.p>
-
-        <motion.h1
-          className="font-serif font-light text-[clamp(3.5rem,10vw,9rem)] leading-[0.9] tracking-tight text-foreground mb-10"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          data-testid="hero-name"
-        >
-          Reema
-          <br />
-          <span className="italic text-primary">Atieh</span>
-        </motion.h1>
-
-        <motion.div
-          className="w-16 h-px bg-primary mx-auto mb-10"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        />
-
-        <motion.p
-          className="font-sans text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          data-testid="hero-intro"
-        >
-          I'm Reema Atieh, a Kuwait-based graphic designer specializing in visual
-          identity, social media design, packaging, editorial design, animation,
-          and website visuals.
-        </motion.p>
-
-        <motion.div
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-        >
-          <button
-            data-testid="hero-cta-work"
-            onClick={scrollToWork}
-            className="px-10 py-3.5 bg-foreground text-background font-sans text-sm tracking-widest uppercase hover:bg-primary transition-colors duration-400"
-          >
-            View Work
-          </button>
-          <button
-            data-testid="hero-cta-contact"
-            onClick={() => {
-              const el = document.querySelector("#contact");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="px-10 py-3.5 border border-foreground text-foreground font-sans text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-colors duration-400"
-          >
-            Get in Touch
-          </button>
-        </motion.div>
-      </div>
-
-      <motion.button
-        data-testid="hero-scroll-indicator"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
-        onClick={scrollToWork}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
+      {/* Top label */}
+      <motion.p
+        className="label-sm mb-10 md:mb-14"
+        data-testid="hero-label"
+        {...fadeUp(0.2)}
       >
-        <span className="font-sans text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-        >
-          <ChevronDown size={18} />
+        Graphic Designer & Art Director &nbsp;·&nbsp; Based in Kuwait
+      </motion.p>
+
+      {/* Main grid: heading left, text right */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-end">
+        {/* Left: big heading */}
+        <motion.div {...fadeUp(0.35)}>
+          <h1
+            className="font-serif font-light text-[clamp(4.5rem,11vw,10.5rem)] leading-[0.88] text-foreground"
+            data-testid="hero-name"
+          >
+            Reema
+            <br />
+            <em className="not-italic" style={{ color: "hsl(var(--primary))" }}>Atieh.</em>
+          </h1>
         </motion.div>
-      </motion.button>
+
+        {/* Right: text + buttons */}
+        <motion.div
+          className="flex flex-col gap-8 pb-2"
+          {...fadeUp(0.5)}
+        >
+          <p
+            className="font-sans text-[15px] text-muted-foreground leading-relaxed font-light"
+            data-testid="hero-intro"
+          >
+            I'm Reema Atieh, a Kuwait-based graphic designer specializing in
+            visual identity, social media design, packaging, editorial design,
+            animation, and website visuals.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button
+              data-testid="hero-cta-work"
+              onClick={scrollToWork}
+              className="btn-primary"
+            >
+              View Work
+            </button>
+            <button
+              data-testid="hero-cta-collab"
+              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="btn-secondary"
+            >
+              Let's Collaborate
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Divider + scroll indicator */}
+      <motion.div
+        className="mt-14 md:mt-20 flex items-center justify-between"
+        {...fadeUp(0.65)}
+      >
+        <div className="divider flex-1" />
+        <button
+          data-testid="hero-scroll"
+          onClick={scrollToWork}
+          className="ml-8 flex items-center gap-3 label-sm hover:text-primary transition-colors duration-300 shrink-0 group"
+        >
+          Scroll to explore
+          <motion.span
+            className="inline-flex"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            <ArrowDown size={14} strokeWidth={1.5} />
+          </motion.span>
+        </button>
+      </motion.div>
+
+      {/* Decorative vertical line */}
+      <div className="absolute right-12 top-36 bottom-24 w-px bg-border hidden xl:block" />
+
+      {/* Index number */}
+      <motion.span
+        className="absolute right-[54px] top-40 label-sm"
+        style={{ writingMode: "vertical-rl" }}
+        {...fadeUp(0.7)}
+      >
+        01 / Portfolio 2024
+      </motion.span>
     </section>
   );
 }

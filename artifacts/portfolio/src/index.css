@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -40,8 +40,9 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-destructive-border: var(--destructive-border);
 
-  --font-sans: 'DM Sans', sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: Menlo, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -50,63 +51,61 @@
 }
 
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0,0,0,.10);
+  --badge-outline: rgba(0,0,0,.05);
   --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0,0,0,.03);
+  --elevate-2: rgba(0,0,0,.08);
 
-  /* Warm cream */
-  --background: 36 33% 96%;
+  /* Warm ivory */
+  --background: 36 22% 94%;
   /* Deep charcoal */
-  --foreground: 30 8% 16%;
-  
-  --border: 30 10% 88%;
-  
-  /* Lighter cream for cards */
-  --card: 36 40% 98%;
-  --card-foreground: 30 8% 16%;
-  --card-border: 30 10% 90%;
-  
-  --sidebar: 36 33% 96%;
-  --sidebar-foreground: 30 8% 16%;
-  --sidebar-border: 30 10% 88%;
-  --sidebar-primary: 350 22% 57%;
+  --foreground: 10 12% 8%;
+  /* Divider */
+  --border: 28 11% 81%;
+
+  --card: 36 22% 96%;
+  --card-foreground: 10 12% 8%;
+  --card-border: 28 11% 83%;
+
+  --sidebar: 36 22% 94%;
+  --sidebar-foreground: 10 12% 8%;
+  --sidebar-border: 28 11% 81%;
+  --sidebar-primary: 17 76% 58%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 30 10% 90%;
-  --sidebar-accent-foreground: 30 8% 16%;
-  --sidebar-ring: 350 22% 57%;
-  
-  --popover: 36 40% 98%;
-  --popover-foreground: 30 8% 16%;
-  --popover-border: 30 10% 90%;
-  
-  /* Dusty rose */
-  --primary: 350 22% 57%;
+  --sidebar-accent: 28 11% 88%;
+  --sidebar-accent-foreground: 10 12% 8%;
+  --sidebar-ring: 17 76% 58%;
+
+  --popover: 36 22% 96%;
+  --popover-foreground: 10 12% 8%;
+  --popover-border: 28 11% 83%;
+
+  /* Terracotta accent */
+  --primary: 17 76% 58%;
   --primary-foreground: 0 0% 100%;
-  
-  /* Soft beige */
-  --secondary: 30 15% 85%;
-  --secondary-foreground: 30 8% 16%;
-  
-  --muted: 30 10% 90%;
-  --muted-foreground: 30 6% 40%;
-  
-  --accent: 30 10% 90%;
-  --accent-foreground: 30 8% 16%;
-  
+
+  --secondary: 28 11% 88%;
+  --secondary-foreground: 10 12% 8%;
+
+  --muted: 28 11% 88%;
+  /* Muted gray #6F6964 */
+  --muted-foreground: 25 5% 42%;
+
+  --accent: 28 11% 88%;
+  --accent-foreground: 10 12% 8%;
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  
-  --input: 30 10% 85%;
-  --ring: 350 22% 57%;
-  
+
+  --input: 28 11% 81%;
+  --ring: 17 76% 58%;
   --radius: 0rem;
-  
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow: 0 4px 16px -2px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 10px 30px -4px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 20px 50px -8px rgb(0 0 0 / 0.10);
 
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -118,53 +117,41 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255,255,255,.10);
+  --badge-outline: rgba(255,255,255,.05);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255,255,255,.04);
+  --elevate-2: rgba(255,255,255,.09);
 
-  /* Deep charcoal background */
-  --background: 30 8% 14%;
-  /* Warm cream foreground */
-  --foreground: 36 33% 96%;
-  
-  --border: 30 8% 25%;
-  
-  --card: 30 8% 16%;
-  --card-foreground: 36 33% 96%;
-  --card-border: 30 8% 22%;
-  
-  --sidebar: 30 8% 14%;
-  --sidebar-foreground: 36 33% 96%;
-  --sidebar-border: 30 8% 25%;
-  --sidebar-primary: 350 22% 65%;
+  --background: 10 12% 8%;
+  --foreground: 36 22% 94%;
+  --border: 28 11% 20%;
+  --card: 10 12% 11%;
+  --card-foreground: 36 22% 94%;
+  --card-border: 28 11% 18%;
+  --sidebar: 10 12% 8%;
+  --sidebar-foreground: 36 22% 94%;
+  --sidebar-border: 28 11% 20%;
+  --sidebar-primary: 17 70% 62%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 30 8% 22%;
-  --sidebar-accent-foreground: 36 33% 96%;
-  --sidebar-ring: 350 22% 65%;
-  
-  --popover: 30 8% 16%;
-  --popover-foreground: 36 33% 96%;
-  --popover-border: 30 8% 22%;
-  
-  --primary: 350 22% 65%;
-  --primary-foreground: 30 8% 14%;
-  
-  --secondary: 30 8% 25%;
-  --secondary-foreground: 36 33% 96%;
-  
-  --muted: 30 8% 22%;
-  --muted-foreground: 30 6% 65%;
-  
-  --accent: 30 8% 22%;
-  --accent-foreground: 36 33% 96%;
-  
+  --sidebar-accent: 28 11% 18%;
+  --sidebar-accent-foreground: 36 22% 94%;
+  --sidebar-ring: 17 70% 62%;
+  --popover: 10 12% 11%;
+  --popover-foreground: 36 22% 94%;
+  --popover-border: 28 11% 18%;
+  --primary: 17 70% 62%;
+  --primary-foreground: 10 12% 8%;
+  --secondary: 28 11% 18%;
+  --secondary-foreground: 36 22% 94%;
+  --muted: 28 11% 18%;
+  --muted-foreground: 25 5% 58%;
+  --accent: 28 11% 18%;
+  --accent-foreground: 36 22% 94%;
   --destructive: 0 62% 30%;
-  --destructive-foreground: 36 33% 96%;
-  
-  --input: 30 8% 25%;
-  --ring: 350 22% 65%;
+  --destructive-foreground: 36 22% 94%;
+  --input: 28 11% 20%;
+  --ring: 17 70% 62%;
 }
 
 @layer base {
@@ -172,9 +159,30 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+    @apply font-sans antialiased bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-medium tracking-tight;
+    @apply font-serif;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+}
+
+@layer utilities {
+  .label-sm {
+    @apply font-sans text-[10px] tracking-[0.25em] uppercase text-muted-foreground;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 bg-foreground text-background font-sans text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-primary;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 border border-foreground text-foreground font-sans text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:border-primary hover:text-primary;
+  }
+  .divider {
+    @apply w-full h-px bg-border;
+  }
+  .section-pad {
+    @apply py-28 md:py-36 px-6 md:px-12 lg:px-20;
   }
 }

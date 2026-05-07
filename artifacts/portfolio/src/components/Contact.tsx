@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -14,72 +14,49 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      data-testid="contact-section"
-      className="py-32 px-6 bg-card"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32">
-          {/* Left: heading + info */}
+    <section id="contact" data-testid="contact-section" className="section-pad border-t border-border">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-20 lg:gap-32">
+          {/* Left */}
           <motion.div
             className="flex flex-col gap-10"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
-              <p className="font-sans text-xs tracking-[0.35em] uppercase text-primary mb-4">
-                Let's Connect
-              </p>
-              <h2 className="font-serif font-light text-5xl md:text-6xl text-foreground leading-[1.05]">
+              <p className="label-sm mb-6">Get in Touch</p>
+              <h2 className="font-serif font-light text-[clamp(2.8rem,5vw,4.5rem)] text-foreground leading-[0.92]">
                 Have a project
                 <br />
-                <span className="italic text-primary">in mind?</span>
+                <em className="not-italic" style={{ color: "hsl(var(--primary))" }}>in mind?</em>
               </h2>
             </div>
 
-            <div className="w-10 h-px bg-primary" />
-
-            <p className="font-sans text-muted-foreground leading-relaxed">
+            <p className="font-sans text-[15px] text-muted-foreground leading-[1.75] font-light">
               Whether you're looking to build a brand from scratch, refresh your
               visual identity, or need a reliable creative partner — I'd love to
               hear about your project.
             </p>
 
-            <div className="flex flex-col gap-6">
-              <div
-                data-testid="contact-email"
-                className="flex items-center gap-4"
-              >
-                <div className="w-9 h-9 border border-border flex items-center justify-center text-primary shrink-0">
-                  <Mail size={16} strokeWidth={1.5} />
+            <div className="flex flex-col gap-7 pt-2">
+              <div data-testid="contact-email" className="flex items-center gap-5">
+                <div className="w-10 h-10 border border-border flex items-center justify-center text-primary shrink-0">
+                  <Mail size={15} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="font-sans text-xs text-muted-foreground uppercase tracking-widest mb-0.5">
-                    Email
-                  </p>
-                  <p className="font-sans text-sm text-foreground">
-                    hello@reemaatieh.com
-                  </p>
+                  <p className="label-sm mb-1">Email</p>
+                  <p className="font-sans text-sm text-foreground">hello@reemaatieh.com</p>
                 </div>
               </div>
-
-              <div
-                data-testid="contact-location"
-                className="flex items-center gap-4"
-              >
-                <div className="w-9 h-9 border border-border flex items-center justify-center text-primary shrink-0">
-                  <MapPin size={16} strokeWidth={1.5} />
+              <div data-testid="contact-location" className="flex items-center gap-5">
+                <div className="w-10 h-10 border border-border flex items-center justify-center text-primary shrink-0">
+                  <MapPin size={15} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="font-sans text-xs text-muted-foreground uppercase tracking-widest mb-0.5">
-                    Location
-                  </p>
-                  <p className="font-sans text-sm text-foreground">
-                    Kuwait City, Kuwait
-                  </p>
+                  <p className="label-sm mb-1">Location</p>
+                  <p className="font-sans text-sm text-foreground">Kuwait City, Kuwait</p>
                 </div>
               </div>
             </div>
@@ -89,78 +66,57 @@ export default function Contact() {
           <motion.form
             data-testid="contact-form"
             onSubmit={handleSubmit}
-            className="flex flex-col gap-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            className="flex flex-col gap-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex flex-col gap-2">
-              <label className="font-sans text-xs tracking-widest uppercase text-muted-foreground">
-                Name
-              </label>
-              <input
-                data-testid="contact-input-name"
-                type="text"
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="bg-background border border-border px-5 py-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors duration-300"
-                placeholder="Your name"
-              />
-            </div>
+            {[
+              { id: "name", label: "Name", type: "text", placeholder: "Your name", key: "name" as const },
+              { id: "email", label: "Email", type: "email", placeholder: "your@email.com", key: "email" as const },
+            ].map((f) => (
+              <div key={f.id} className="flex flex-col gap-2">
+                <label className="label-sm">{f.label}</label>
+                <input
+                  data-testid={`contact-input-${f.id}`}
+                  type={f.type}
+                  required
+                  value={form[f.key]}
+                  onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
+                  placeholder={f.placeholder}
+                  className="bg-transparent border border-border px-5 py-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300"
+                />
+              </div>
+            ))}
 
             <div className="flex flex-col gap-2">
-              <label className="font-sans text-xs tracking-widest uppercase text-muted-foreground">
-                Email
-              </label>
-              <input
-                data-testid="contact-input-email"
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="bg-background border border-border px-5 py-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors duration-300"
-                placeholder="your@email.com"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="font-sans text-xs tracking-widest uppercase text-muted-foreground">
-                Message
-              </label>
+              <label className="label-sm">Message</label>
               <textarea
                 data-testid="contact-input-message"
                 required
-                rows={6}
+                rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="bg-background border border-border px-5 py-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
                 placeholder="Tell me about your project..."
+                className="bg-transparent border border-border px-5 py-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300 resize-none"
               />
             </div>
 
             <button
               data-testid="contact-submit"
               type="submit"
-              className="flex items-center justify-center gap-3 px-10 py-4 bg-foreground text-background font-sans text-sm tracking-widest uppercase hover:bg-primary transition-colors duration-400 mt-2"
+              className="btn-primary mt-2 justify-center"
             >
-              {sent ? (
-                "Message Sent"
-              ) : (
-                <>
-                  Send Message
-                  <Send size={14} />
-                </>
-              )}
+              {sent ? "Message Sent" : (<>Send Message <Send size={13} strokeWidth={1.5} /></>)}
             </button>
 
             {sent && (
               <motion.p
                 className="font-sans text-sm text-primary text-center"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                data-testid="contact-success-msg"
+                data-testid="contact-success"
               >
                 Thank you — I'll be in touch soon.
               </motion.p>
