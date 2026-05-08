@@ -19,7 +19,7 @@ export const content = {
       viewWork: "View Work",
       collab: "Let's Collaborate",
       scroll: "Scroll to explore",
-      index: "01 / Portfolio 2024",
+      index: "01 / Portfolio 2026",
     },
     categories: {
       label: "Disciplines",
@@ -152,7 +152,7 @@ export const content = {
       viewWork: "عرض الأعمال",
       collab: "لنتعاون معاً",
       scroll: "تمرير للاستكشاف",
-      index: "٠١ / ملف الأعمال ٢٠٢٤",
+      index: "٠١ / ملف الأعمال ٢٠٢٦",
     },
     categories: {
       label: "التخصصات",
