@@ -23,7 +23,7 @@ export default function Hero() {
         data-testid="hero-label"
         {...fadeUp(0.2)}
       >
-        Graphic Designer & Art Director &nbsp;·&nbsp; Based in Kuwait
+        Graphic Designer &nbsp;·&nbsp; Based in Kuwait
       </motion.p>
 
       {/* Main grid: heading left, text right */}

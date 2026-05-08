@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <p className="font-serif text-2xl tracking-[0.08em] uppercase text-foreground">Reema Atieh</p>
-            <p className="label-sm">Graphic Designer · Art Director · Kuwait</p>
+            <p className="label-sm">Graphic Designer · Kuwait</p>
             <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed max-w-xs">
               Creating purposeful design for brands that want to stand out — and stand for something.
             </p>
