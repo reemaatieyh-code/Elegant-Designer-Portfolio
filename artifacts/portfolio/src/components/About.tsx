@@ -7,8 +7,7 @@ export default function About() {
   return (
     <section id="about" data-testid="about-section" className="section-pad border-t border-border">
       <div className="max-w-[1400px] mx-auto">
-        <div className={`grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-20 lg:gap-32 ${isRTL ? "lg:grid-flow-dense" : ""}`}>
-          {/* Left / Primary content */}
+        <div className="max-w-2xl">
           <motion.div
             className={`flex flex-col gap-10 ${isRTL ? "items-end text-right" : ""}`}
             initial={{ opacity: 0, y: 30 }}
@@ -43,24 +42,6 @@ export default function About() {
             </button>
           </motion.div>
 
-          {/* Right: photo + stats */}
-          <motion.div
-            className="flex flex-col gap-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative">
-              <div
-                data-testid="about-photo"
-                className="aspect-[4/5] w-full max-w-sm"
-                style={{ background: "linear-gradient(160deg, #C9B0A0 0%, #A88A78 45%, #7A6050 100%)" }}
-              />
-              <div className={`absolute -bottom-3 ${isRTL ? "-left-3" : "-right-3"} w-full max-w-sm aspect-[4/5] border border-border -z-10`} />
-            </div>
-
-          </motion.div>
         </div>
       </div>
     </section>
