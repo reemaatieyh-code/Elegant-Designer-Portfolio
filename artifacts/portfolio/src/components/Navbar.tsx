@@ -77,7 +77,7 @@ export default function Navbar() {
             >
               <span className={lang === "en" ? "text-foreground" : "text-muted-foreground"}>EN</span>
               <span className="text-border mx-0.5">|</span>
-              <span className={lang === "ar" ? "text-foreground" : "text-muted-foreground"} style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}>عر</span>
+              <span className={lang === "ar" ? "text-foreground" : "text-muted-foreground"}>AR</span>
             </button>
 
             <button
@@ -98,7 +98,7 @@ export default function Navbar() {
             >
               <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
               <span className="mx-1 text-border">|</span>
-              <span className={lang === "ar" ? "text-foreground" : ""} style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}>عر</span>
+              <span className={lang === "ar" ? "text-foreground" : ""}>AR</span>
             </button>
             <button
               data-testid="navbar-menu-toggle"
