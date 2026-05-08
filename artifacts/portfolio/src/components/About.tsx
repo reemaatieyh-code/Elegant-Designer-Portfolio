@@ -60,14 +60,6 @@ export default function About() {
               <div className={`absolute -bottom-3 ${isRTL ? "-left-3" : "-right-3"} w-full max-w-sm aspect-[4/5] border border-border -z-10`} />
             </div>
 
-            <div className={`grid grid-cols-3 gap-6 border-t border-border pt-10 ${isRTL ? "text-right" : ""}`}>
-              {t.about.stats.map((s) => (
-                <div key={s.value} data-testid={`stat-${s.value}`}>
-                  <p className="font-serif font-light text-4xl text-foreground">{s.value}</p>
-                  <p className="label-sm mt-2 leading-snug">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
