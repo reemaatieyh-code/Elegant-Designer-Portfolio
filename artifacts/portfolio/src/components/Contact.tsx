@@ -47,7 +47,7 @@ export default function Contact() {
                 </div>
                 <div className={isRTL ? "text-right" : ""}>
                   <p className="label-sm mb-1">{t.contact.emailLabel}</p>
-                  <p className="font-sans text-sm text-foreground">hello@reemaatieh.com</p>
+                  <p className="font-sans text-sm text-foreground">r.atieh@outlook.com</p>
                 </div>
               </div>
             </div>
