@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
@@ -41,20 +41,15 @@ export default function Contact() {
             </p>
 
             <div className="flex flex-col gap-7 pt-2">
-              {[
-                { Icon: Mail, label: t.contact.emailLabel, value: "hello@reemaatieh.com", testId: "contact-email" },
-                { Icon: MapPin, label: t.contact.locationLabel, value: t.contact.location, testId: "contact-location" },
-              ].map(({ Icon, label, value, testId }) => (
-                <div key={testId} data-testid={testId} className={`flex items-center gap-5 ${isRTL ? "flex-row-reverse" : ""}`}>
-                  <div className="w-10 h-10 border border-border flex items-center justify-center text-primary shrink-0">
-                    <Icon size={15} strokeWidth={1.5} />
-                  </div>
-                  <div className={isRTL ? "text-right" : ""}>
-                    <p className="label-sm mb-1">{label}</p>
-                    <p className="font-sans text-sm text-foreground">{value}</p>
-                  </div>
+              <div data-testid="contact-email" className={`flex items-center gap-5 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <div className="w-10 h-10 border border-border flex items-center justify-center text-primary shrink-0">
+                  <Mail size={15} strokeWidth={1.5} />
                 </div>
-              ))}
+                <div className={isRTL ? "text-right" : ""}>
+                  <p className="label-sm mb-1">{t.contact.emailLabel}</p>
+                  <p className="font-sans text-sm text-foreground">hello@reemaatieh.com</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
