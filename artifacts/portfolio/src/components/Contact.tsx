@@ -18,8 +18,9 @@ export default function Contact() {
   return (
     <section id="contact" data-testid="contact-section" className="section-pad border-t border-border">
       <div className="max-w-[1400px] mx-auto">
-        <div className={`grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-20 lg:gap-32 ${isRTL ? "lg:grid-flow-dense" : ""}`}>
-          {/* Info */}
+        {/* 2-col grid — col order reverses with dir="rtl": info on right, form on left */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-20 lg:gap-32">
+          {/* Info — col 1: left in LTR, right in RTL */}
           <motion.div
             className={`flex flex-col gap-10 ${isRTL ? "items-end text-right" : ""}`}
             initial={{ opacity: 0, y: 30 }}
@@ -53,7 +54,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Form — col 2: right in LTR, left in RTL */}
           <motion.form
             data-testid="contact-form"
             onSubmit={handleSubmit}
@@ -94,7 +95,11 @@ export default function Contact() {
               />
             </div>
 
-            <button data-testid="contact-submit" type="submit" className="btn-primary mt-2 justify-center">
+            <button
+              data-testid="contact-submit"
+              type="submit"
+              className={`btn-primary mt-2 justify-center ${isRTL ? "flex-row-reverse" : ""}`}
+            >
               {sent ? t.contact.sent : (<>{t.contact.submit} <Send size={13} strokeWidth={1.5} /></>)}
             </button>
 

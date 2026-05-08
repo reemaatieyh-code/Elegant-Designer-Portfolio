@@ -42,11 +42,11 @@ export default function Navbar() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         <nav className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 h-[70px] grid grid-cols-3 items-center">
-          {/* Logo */}
+          {/* Logo — col 1: left in LTR, right in RTL (grid reverses) */}
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={`font-serif text-[17px] tracking-[0.12em] uppercase text-foreground hover:text-primary transition-colors duration-300 ${isRTL ? "text-right" : "text-left"}`}
+            className="font-serif text-[17px] tracking-[0.12em] uppercase text-foreground hover:text-primary transition-colors duration-300 text-start"
           >
             {t.nav.logo}
           </button>
@@ -60,15 +60,15 @@ export default function Navbar() {
                   className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                  {/* underline expands from inline-start (left in LTR, right in RTL) */}
+                  <span className="absolute -bottom-0.5 start-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                 </button>
               </li>
             ))}
           </ul>
 
-          {/* Right: lang switcher + CTA */}
-          <div className={`hidden md:flex items-center gap-4 ${isRTL ? "justify-start" : "justify-end"}`}>
-            {/* Language switcher */}
+          {/* Right col: lang switcher + CTA — col 3: right in LTR, left in RTL */}
+          <div className="hidden md:flex items-center gap-4 justify-end rtl:justify-start">
             <button
               data-testid="lang-switcher"
               onClick={toggleLang}
@@ -89,8 +89,8 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile: lang + hamburger */}
-          <div className={`md:hidden flex items-center gap-3 ${isRTL ? "justify-start" : "justify-end"} col-span-2`}>
+          {/* Mobile: lang + hamburger — spans cols 2-3, left in LTR; cols 2-3 = center+left in RTL */}
+          <div className="md:hidden flex items-center gap-3 justify-end rtl:justify-start col-span-2">
             <button
               data-testid="lang-switcher-mobile"
               onClick={toggleLang}

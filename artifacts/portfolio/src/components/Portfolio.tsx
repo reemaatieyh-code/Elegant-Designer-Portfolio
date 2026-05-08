@@ -175,9 +175,9 @@ export default function Portfolio() {
   return (
     <section id="portfolio" data-testid="portfolio-section" className="section-pad border-t border-border">
       <div className="max-w-[1400px] mx-auto">
-        {/* Header */}
+        {/* Header — flex row reverses in RTL */}
         <div className={`flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20 ${isRTL ? "md:flex-row-reverse" : ""}`}>
-          <div>
+          <div className={isRTL ? "text-right" : ""}>
             <p className="label-sm mb-5">{t.portfolio.label}</p>
             <h2 className="font-serif font-light text-[clamp(3rem,6vw,5.5rem)] text-foreground">
               {t.portfolio.heading}
@@ -188,7 +188,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Filters */}
+        {/* Filters — start from right in RTL */}
         <motion.div
           className={`flex flex-wrap gap-2 mb-14 ${isRTL ? "flex-row-reverse" : ""}`}
           initial={{ opacity: 0, y: 16 }}
@@ -211,7 +211,7 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
-        {/* Project grid */}
+        {/* Project grid — 2-col grid reverses automatically with dir="rtl" */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => {
@@ -235,11 +235,12 @@ export default function Portfolio() {
                       style={{ background: project.bg }}
                     />
                     <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-all duration-500 flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0 font-sans text-[11px] tracking-[0.2em] uppercase text-background flex items-center gap-2">
+                      <span className={`opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0 font-sans text-[11px] tracking-[0.2em] uppercase text-background flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                         {t.portfolio.viewCase} <ArrowIcon size={13} strokeWidth={1.5} />
                       </span>
                     </div>
-                    <span className={`absolute top-5 ${isRTL ? "left-5" : "right-5"} label-sm text-white/60`}>{project.year}</span>
+                    {/* Year badge: top-end corner */}
+                    <span className={`absolute top-5 label-sm text-white/60 ${isRTL ? "left-5" : "right-5"}`}>{project.year}</span>
                   </div>
 
                   {/* Info */}

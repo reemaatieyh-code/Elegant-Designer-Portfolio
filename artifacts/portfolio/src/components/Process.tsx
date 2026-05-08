@@ -7,6 +7,7 @@ export default function Process() {
   return (
     <section id="process" data-testid="process-section" className="section-pad border-t border-border bg-foreground">
       <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
         <div className={`mb-16 md:mb-20 ${isRTL ? "text-right" : ""}`}>
           <p className="label-sm text-muted-foreground/60 mb-5">{t.process.label}</p>
           <h2 className="font-serif font-light text-[clamp(3rem,6vw,5.5rem)] text-background leading-[0.9]">
@@ -14,7 +15,8 @@ export default function Process() {
           </h2>
         </div>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-background/10 ${isRTL ? "lg:grid-flow-dense" : ""}`}>
+        {/* 4-column grid — columns reverse automatically with dir="rtl" */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-background/10">
           {t.process.steps.map((step, i) => (
             <motion.div
               key={step.num}

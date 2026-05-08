@@ -10,6 +10,7 @@ export default function Services() {
   return (
     <section id="services" data-testid="services-section" className="section-pad border-t border-border">
       <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
         <div className={`flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20 ${isRTL ? "md:flex-row-reverse" : ""}`}>
           <div className={isRTL ? "text-right" : ""}>
             <p className="label-sm mb-5">{t.services.label}</p>
@@ -19,6 +20,7 @@ export default function Services() {
           </div>
         </div>
 
+        {/* Service rows */}
         <div className="flex flex-col divide-y divide-border">
           {t.services.items.map((s, i) => {
             const Icon = icons[i];
@@ -26,7 +28,11 @@ export default function Services() {
               <motion.div
                 key={s.num}
                 data-testid={`service-${i}`}
-                className={`grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 md:gap-12 py-10 group ${isRTL ? "md:grid-cols-[1fr_1fr_80px] text-right" : ""}`}
+                className={`grid py-10 group gap-6 md:gap-12 ${
+                  isRTL
+                    ? "grid-cols-1 md:grid-cols-[1fr_1fr_80px] text-right"
+                    : "grid-cols-1 md:grid-cols-[80px_1fr_1fr]"
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -34,15 +40,17 @@ export default function Services() {
               >
                 {isRTL ? (
                   <>
+                    {/* RTL: desc | title | num+icon */}
                     <p className="font-sans text-[14px] text-muted-foreground leading-[1.75] font-light">{s.desc}</p>
                     <h3 className="font-serif font-light text-2xl md:text-[1.7rem] text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">{s.title}</h3>
-                    <div className="flex items-start justify-end gap-4 md:flex-col md:gap-3">
+                    <div className="flex items-start justify-end gap-4 md:flex-col md:gap-3 md:items-end">
                       <Icon size={18} strokeWidth={1.5} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                       <span className="label-sm group-hover:text-primary transition-colors duration-300">{s.num}</span>
                     </div>
                   </>
                 ) : (
                   <>
+                    {/* LTR: num+icon | title | desc */}
                     <div className="flex items-start gap-4 md:flex-col md:gap-3">
                       <span className="label-sm group-hover:text-primary transition-colors duration-300">{s.num}</span>
                       <Icon size={18} strokeWidth={1.5} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />

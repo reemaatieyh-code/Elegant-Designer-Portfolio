@@ -19,9 +19,10 @@ export default function Footer() {
   return (
     <footer data-testid="footer" className="border-t border-border section-pad py-16">
       <div className="max-w-[1400px] mx-auto">
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-12 pb-14 border-b border-border ${isRTL ? "text-right" : ""}`}>
-          {/* Brand */}
-          <div className={`flex flex-col gap-4 ${isRTL ? "items-end" : ""}`}>
+        {/* 3-col grid — columns reverse automatically with dir="rtl" */}
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-12 pb-14 border-b border-border`}>
+          {/* Brand — col 1: left in LTR, right in RTL */}
+          <div className={`flex flex-col gap-4 ${isRTL ? "items-end text-right" : ""}`}>
             <p className="font-serif text-2xl tracking-[0.08em] uppercase text-foreground">{t.footer.brand}</p>
             <p className="label-sm">{t.footer.tagline}</p>
             <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed max-w-xs">
@@ -29,8 +30,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Nav */}
-          <div className={`flex flex-col gap-4 ${isRTL ? "items-end" : ""}`}>
+          {/* Nav — col 2: center in both */}
+          <div className={`flex flex-col gap-4 ${isRTL ? "items-end text-right" : ""}`}>
             <p className="label-sm">{t.footer.navLabel}</p>
             <nav className="flex flex-col gap-3">
               {t.footer.links.map((link, idx) => (
@@ -38,8 +39,7 @@ export default function Footer() {
                   key={link}
                   data-testid={`footer-nav-${idx}`}
                   onClick={() => nav(idx)}
-                  className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 font-light text-left"
-                  style={{ textAlign: isRTL ? "right" : "left" }}
+                  className={`font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 font-light ${isRTL ? "text-right" : "text-left"}`}
                 >
                   {link}
                 </button>
@@ -47,8 +47,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Social */}
-          <div className={`flex flex-col gap-4 ${isRTL ? "items-end" : ""}`}>
+          {/* Social — col 3: right in LTR, left in RTL */}
+          <div className={`flex flex-col gap-4 ${isRTL ? "items-end text-right" : ""}`}>
             <p className="label-sm">{t.footer.followLabel}</p>
             <div className={`flex gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
               {socials.map(({ Icon, href, label }) => (
@@ -67,6 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className={`pt-8 flex flex-col md:flex-row items-center justify-between gap-4 ${isRTL ? "md:flex-row-reverse" : ""}`}>
           <p className="label-sm">{t.footer.copyright(new Date().getFullYear())}</p>
           <p className="font-serif text-sm italic text-muted-foreground">{t.footer.taglineFooter}</p>

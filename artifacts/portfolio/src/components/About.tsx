@@ -41,7 +41,6 @@ export default function About() {
               {t.about.cta}
             </button>
           </motion.div>
-
         </div>
       </div>
     </section>

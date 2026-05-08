@@ -29,10 +29,10 @@ export default function Hero() {
         {t.hero.label}
       </motion.p>
 
-      {/* Main grid */}
-      <div className={`grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-end`}>
+      {/* Main grid — col-1 heading (left LTR / right RTL), col-2 intro (right LTR / left RTL) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-end">
         {/* Heading */}
-        <motion.div {...fadeUp(0.35)}>
+        <motion.div {...fadeUp(0.35)} className={isRTL ? "text-right" : ""}>
           <h1
             className="font-light text-[clamp(4.5rem,11vw,10.5rem)] leading-[0.88] text-foreground"
             style={{ fontFamily: "'Canela', 'Cormorant Garamond', Georgia, serif" }}
@@ -44,8 +44,11 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Right: intro + buttons */}
-        <motion.div className="flex flex-col gap-8 pb-2" {...fadeUp(0.5)}>
+        {/* Intro + buttons */}
+        <motion.div
+          className={`flex flex-col gap-8 pb-2 ${isRTL ? "items-end text-right" : ""}`}
+          {...fadeUp(0.5)}
+        >
           <p
             className="font-sans text-[15px] text-muted-foreground leading-relaxed font-light"
             data-testid="hero-intro"
@@ -72,16 +75,16 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Divider + scroll */}
+      {/* Divider + scroll indicator */}
       <motion.div
-        className="mt-14 md:mt-20 flex items-center justify-between"
+        className={`mt-14 md:mt-20 flex items-center ${isRTL ? "flex-row-reverse" : ""}`}
         {...fadeUp(0.65)}
       >
         <div className="divider flex-1" />
         <button
           data-testid="hero-scroll"
           onClick={scrollToWork}
-          className={`${isRTL ? "mr-8" : "ml-8"} flex items-center gap-3 label-sm hover:text-primary transition-colors duration-300 shrink-0 group`}
+          className={`${isRTL ? "me-8 flex-row-reverse" : "ms-8"} flex items-center gap-3 label-sm hover:text-primary transition-colors duration-300 shrink-0 group`}
         >
           {t.hero.scroll}
           <motion.span
@@ -95,11 +98,11 @@ export default function Hero() {
       </motion.div>
 
       {/* Decorative vertical line */}
-      <div className={`absolute ${isRTL ? "left-12" : "right-12"} top-36 bottom-24 w-px bg-border hidden xl:block`} />
+      <div className={`absolute top-36 bottom-24 w-px bg-border hidden xl:block ${isRTL ? "left-12" : "right-12"}`} />
 
       {/* Index number */}
       <motion.span
-        className={`absolute ${isRTL ? "left-[54px]" : "right-[54px]"} top-40 label-sm`}
+        className={`absolute top-40 label-sm ${isRTL ? "left-[54px]" : "right-[54px]"}`}
         style={{ writingMode: "vertical-rl" }}
         {...fadeUp(0.7)}
       >
