@@ -34,7 +34,8 @@ export default function Hero() {
         {/* Heading */}
         <motion.div {...fadeUp(0.35)}>
           <h1
-            className="font-serif font-light text-[clamp(4.5rem,11vw,10.5rem)] leading-[0.88] text-foreground"
+            className="font-light text-[clamp(4.5rem,11vw,10.5rem)] leading-[0.88] text-foreground"
+            style={{ fontFamily: "'Canela', 'Cormorant Garamond', Georgia, serif" }}
             data-testid="hero-name"
           >
             {t.hero.line1}
