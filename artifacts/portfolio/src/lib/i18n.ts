@@ -12,10 +12,10 @@ export const content = {
       cta: "Let's Talk",
     },
     hero: {
-      label: "Graphic Designer · Based in Kuwait",
+      label: "Graphic Designer",
       line1: "Reema",
       line2: "Atieh.",
-      intro: "I'm Reema Atieh, a Kuwait-based graphic designer specializing in visual identity, social media design, packaging, editorial design, animation, and website visuals.",
+      intro: "I'm Reema Atieh, a graphic designer specializing in visual identity, social media design, packaging, editorial design, animation, and website visuals.",
       viewWork: "View Work",
       collab: "Let's Collaborate",
       scroll: "Scroll to explore",
@@ -52,7 +52,7 @@ export const content = {
       label: "About",
       headingLine1: "Design is how",
       headingAccent: "I think.",
-      bio1: "I'm Reema Atieh, a Kuwait-based graphic designer with a passion for crafting visual stories that resonate. My work lives at the intersection of strategy and aesthetics — designs that don't just look beautiful, but communicate with intention and clarity.",
+      bio1: "I'm Reema Atieh, a graphic designer with a passion for crafting visual stories that resonate. My work lives at the intersection of strategy and aesthetics — designs that don't just look beautiful, but communicate with intention and clarity.",
       bio2: "From building brand identities from the ground up to crafting editorial layouts and motion sequences, I bring the same level of care and curiosity to every project. I believe great design understands the audience before it speaks to them.",
       cta: "Work Together",
       stats: [
@@ -103,7 +103,7 @@ export const content = {
     },
     footer: {
       brand: "Reema Atieh",
-      tagline: "Graphic Designer · Kuwait",
+      tagline: "Graphic Designer",
       about: "Creating purposeful design for brands that want to stand out — and stand for something.",
       navLabel: "Navigation",
       links: ["Work", "About", "Services", "Process", "Contact"],
@@ -145,10 +145,10 @@ export const content = {
       cta: "لنتحدث",
     },
     hero: {
-      label: "مصممة جرافيك · الكويت",
+      label: "مصممة جرافيك",
       line1: "ريما",
       line2: "عطية.",
-      intro: "أنا ريما عطية، مصممة جرافيك مقيمة في الكويت، متخصصة في الهوية البصرية، تصميم منصات التواصل الاجتماعي، تصميم التغليف، التصميم التحريري، الرسوم المتحركة، وتصاميم المواقع الإلكترونية.",
+      intro: "أنا ريما عطية، مصممة جرافيك متخصصة في الهوية البصرية، تصميم منصات التواصل الاجتماعي، تصميم التغليف، التصميم التحريري، الرسوم المتحركة، وتصاميم المواقع الإلكترونية.",
       viewWork: "عرض الأعمال",
       collab: "لنتعاون معاً",
       scroll: "تمرير للاستكشاف",
@@ -185,7 +185,7 @@ export const content = {
       label: "عن ريما",
       headingLine1: "التصميم هو",
       headingAccent: "طريقتي.",
-      bio1: "أنا ريما عطية، مصممة جرافيك مقيمة في الكويت، شغوفة بصياغة قصص بصرية تترك أثراً. يقع عملي عند تقاطع الاستراتيجية والجماليات — تصاميم لا تبدو جميلة فحسب، بل تتواصل بنية وصوت واضحَين.",
+      bio1: "أنا ريما عطية، مصممة جرافيك شغوفة بصياغة قصص بصرية تترك أثراً. يقع عملي عند تقاطع الاستراتيجية والجماليات — تصاميم لا تبدو جميلة فحسب، بل تتواصل بنية وصوت واضحَين.",
       bio2: "من بناء هويات العلامات التجارية من الصفر إلى صياغة التخطيطات التحريرية وتسلسلات الموشن، أُحضر المستوى ذاته من العناية والفضول لكل مشروع. أؤمن بأن التصميم الرائع يفهم الجمهور قبل أن يخاطبه.",
       cta: "لنعمل معاً",
       stats: [
@@ -236,7 +236,7 @@ export const content = {
     },
     footer: {
       brand: "ريما عطية",
-      tagline: "مصممة جرافيك · الكويت",
+      tagline: "مصممة جرافيك",
       about: "تصميم هادف للعلامات التجارية التي تريد أن تبرز وأن تحمل رسالة.",
       navLabel: "التنقل",
       links: ["أعمالي", "عنّي", "الخدمات", "المنهجية", "تواصل"],

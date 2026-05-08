@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     id: 2, slug: "raha-wellness", title: "Raha Wellness",
     category: "Social Media Design", year: "2024",
-    description: "Ongoing monthly content for a Kuwait wellness brand — calm, considered, consistent.",
+    description: "Ongoing monthly content for a wellness brand — calm, considered, consistent.",
     detail: "Twelve months of social media content for Raha Wellness — educational carousels, testimonial templates, and promotional graphics built around a flexible design system. The system lets any team member produce new posts while maintaining strict visual consistency.",
     role: "Social Media Design, Brand System",
     bg: "linear-gradient(160deg, #B8A898 0%, #957B6C 60%, #6E5548 100%)",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
   {
     id: 8, slug: "noor-architecture", title: "Noor Architecture Studio",
     category: "Website & Digital Design", year: "2024",
-    description: "Portfolio website visual design for a Kuwait-based architecture firm.",
+    description: "Portfolio website visual design for an architecture firm.",
     detail: "Visual design for a five-page architecture portfolio. Near-invisible navigation, full-bleed project grid, a restrained type palette. The result feels like a gallery, not a website. Delivered as Figma components and an annotated style guide.",
     role: "UI Design",
     bg: "linear-gradient(160deg, #788898 0%, #586878 60%, #384858 100%)",
