@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
-
-const navLinks = [
-  { label: "Work", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navbar() {
+  const { t, lang, setLang, isRTL } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: t.nav.work, href: "#portfolio" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.process, href: "#process" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -25,6 +27,8 @@ export default function Navbar() {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
 
   return (
     <>
@@ -42,9 +46,9 @@ export default function Navbar() {
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-[17px] tracking-[0.12em] uppercase text-foreground hover:text-primary transition-colors duration-300 text-left"
+            className={`font-serif text-[17px] tracking-[0.12em] uppercase text-foreground hover:text-primary transition-colors duration-300 ${isRTL ? "text-right" : "text-left"}`}
           >
-            Reema Atieh
+            {t.nav.logo}
           </button>
 
           {/* Center nav */}
@@ -52,9 +56,8 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <button
-                  data-testid={`nav-link-${link.label.toLowerCase()}`}
                   onClick={() => handleNav(link.href)}
-                  className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                  className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
@@ -63,19 +66,40 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right CTA */}
-          <div className="hidden md:flex justify-end">
+          {/* Right: lang switcher + CTA */}
+          <div className={`hidden md:flex items-center gap-4 ${isRTL ? "justify-start" : "justify-end"}`}>
+            {/* Language switcher */}
+            <button
+              data-testid="lang-switcher"
+              onClick={toggleLang}
+              className="flex items-center gap-1 font-sans text-[11px] tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              aria-label="Switch language"
+            >
+              <span className={lang === "en" ? "text-foreground" : "text-muted-foreground"}>EN</span>
+              <span className="text-border mx-0.5">|</span>
+              <span className={lang === "ar" ? "text-foreground" : "text-muted-foreground"} style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}>عر</span>
+            </button>
+
             <button
               data-testid="navbar-cta"
               onClick={() => handleNav("#contact")}
-              className="font-sans text-[11px] tracking-[0.2em] uppercase px-6 py-2.5 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+              className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
             >
-              Let's Talk
+              {t.nav.cta}
             </button>
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="md:hidden flex justify-end col-span-2">
+          {/* Mobile: lang + hamburger */}
+          <div className={`md:hidden flex items-center gap-3 ${isRTL ? "justify-start" : "justify-end"} col-span-2`}>
+            <button
+              data-testid="lang-switcher-mobile"
+              onClick={toggleLang}
+              className="font-sans text-[11px] tracking-[0.15em] text-muted-foreground"
+            >
+              <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
+              <span className="mx-1 text-border">|</span>
+              <span className={lang === "ar" ? "text-foreground" : ""} style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}>عر</span>
+            </button>
             <button
               data-testid="navbar-menu-toggle"
               className="p-2 text-foreground"
@@ -91,20 +115,19 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             data-testid="mobile-menu"
-            className="fixed inset-0 z-40 bg-background flex flex-col items-start justify-end pb-20 px-10 md:hidden"
+            className={`fixed inset-0 z-40 bg-background flex flex-col pb-20 px-10 md:hidden justify-end ${isRTL ? "items-end" : "items-start"}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="flex flex-col gap-8">
+            <div className={`flex flex-col gap-8 ${isRTL ? "items-end" : "items-start"}`}>
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.href}
-                  data-testid={`mobile-nav-${link.label.toLowerCase()}`}
                   onClick={() => handleNav(link.href)}
-                  className="font-serif text-5xl text-foreground hover:text-primary transition-colors duration-300 text-left leading-none"
-                  initial={{ opacity: 0, x: -20 }}
+                  className="font-serif text-5xl text-foreground hover:text-primary transition-colors duration-300 leading-none"
+                  initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 + i * 0.06 }}
                 >
@@ -113,7 +136,7 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mt-12 divider" />
-            <p className="mt-6 label-sm">Kuwait · Graphic Designer</p>
+            <p className="mt-6 label-sm">{t.hero.label}</p>
           </motion.div>
         )}
       </AnimatePresence>
