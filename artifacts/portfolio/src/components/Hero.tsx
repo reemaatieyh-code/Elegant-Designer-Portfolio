@@ -39,23 +39,23 @@ export default function Hero() {
         {/* Heading */}
         <motion.div {...fadeUp(0.35)} className={isRTL ? "text-right" : ""}>
           <h1
-            className="font-light text-[clamp(4.5rem,11vw,10.5rem)] leading-[0.88] text-foreground"
+            className="font-light text-[clamp(5rem,10vw,10rem)] leading-[0.9] text-[#1D1715]"
             style={{ fontFamily: "'Canela', 'Cormorant Garamond', Georgia, serif" }}
             data-testid="hero-name"
           >
             {t.hero.line1}
             <br />
-            <em className="not-italic" style={{ color: "hsl(var(--primary))" }}>{t.hero.line2}</em>
+            <em className="not-italic text-[#D96F45]">{t.hero.line2}</em>
           </h1>
         </motion.div>
 
         {/* Intro + buttons */}
         <motion.div
-          className={`flex flex-col gap-8 pb-2 ${isRTL ? "items-end text-right" : ""}`}
+          className={`flex flex-col gap-9 pb-10 lg:pt-32 ${isRTL ? "items-end text-right" : ""}`}
           {...fadeUp(0.5)}
         >
           <p
-            className="font-sans text-[15px] text-muted-foreground leading-relaxed font-light"
+            className="font-sans text-[18px] text-stone-700 leading-[1.75] font-light max-w-[470px]"
             data-testid="hero-intro"
           >
             {t.hero.intro}
@@ -82,7 +82,7 @@ export default function Hero() {
 
       {/* Divider + scroll indicator */}
       <motion.div
-        className={`mt-14 md:mt-20 flex items-center ${isRTL ? "flex-row-reverse" : ""}`}
+        className={`mt-16 md:mt-24 flex items-center ${isRTL ? "flex-row-reverse" : ""}`}
         {...fadeUp(0.65)}
       >
         <div className="divider flex-1" />
@@ -103,11 +103,11 @@ export default function Hero() {
       </motion.div>
 
       {/* Decorative vertical line */}
-      <div className={`absolute top-36 bottom-24 w-px bg-border hidden xl:block ${isRTL ? "left-12" : "right-12"}`} />
+      <div className={`absolute top-36 bottom-24 w-px bg-border hidden xl:block ${isRTL ? "left-20" : "right-20"}`} />
 
       {/* Index number */}
       <motion.span
-        className={`absolute top-40 label-sm ${isRTL ? "left-[54px]" : "right-[54px]"}`}
+        className={`absolute top-40 label-sm ${isRTL ? "left-[88px]" : "right-[88px]"}`}
         style={{ writingMode: "vertical-rl" }}
         {...fadeUp(0.7)}
       >
