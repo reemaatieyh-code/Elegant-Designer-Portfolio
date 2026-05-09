@@ -12,18 +12,18 @@ export default function Hero() {
   const { t, isRTL } = useLanguage();
 
   const scrollToWork = () => {
-    document.querySelector("#portfolio")?.scrollIntoView({
-      behavior: "smooth",
-    });
+    document
+      .querySelector("#portfolio")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       data-testid="hero-section"
-      className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-[#F6F2EE] px-8 lg:px-16 pt-32 pb-12"
+      className="relative min-h-screen flex flex-col justify-end section-pad pt-32 overflow-hidden bg-[#F7F4EF]"
     >
       {/* Top label */}
-      <motion.div {...fadeUp(0.2)} className="mb-14 md:mb-20">
+      <motion.div {...fadeUp(0.2)} className="mb-12 md:mb-16">
         <p
           className="font-sans text-[13px] tracking-[0.38em] uppercase text-stone-600 mb-5"
           data-testid="hero-label"
@@ -35,15 +35,15 @@ export default function Hero() {
       </motion.div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-10 lg:gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_520px] gap-6 lg:gap-8 items-center">
         
-        {/* Left Side */}
+        {/* Left Side — Name */}
         <motion.div
           {...fadeUp(0.35)}
-          className={`${isRTL ? "text-right" : ""} pl-2 lg:pl-4`}
+          className={isRTL ? "text-right" : ""}
         >
           <h1
-            className="font-light text-[clamp(7rem,13vw,13rem)] leading-[0.86] text-[#16110F]"
+            className="font-light text-[clamp(5rem,10vw,10rem)] leading-[0.88] text-[#171311]"
             style={{
               fontFamily:
                 "'Canela', 'Cormorant Garamond', Georgia, serif",
@@ -52,26 +52,28 @@ export default function Hero() {
           >
             {t.hero.line1}
             <br />
+
             <em className="not-italic text-[#D96F45]">
               {t.hero.line2}
             </em>
           </h1>
         </motion.div>
 
-        {/* Right Side */}
+        {/* Right Side — Intro */}
         <motion.div
-          className={`flex flex-col gap-8 lg:pt-16 ${
+          className={`flex flex-col gap-8 ${
             isRTL ? "items-end text-right" : ""
           }`}
           {...fadeUp(0.5)}
         >
           <p
-            className="font-sans text-[17px] text-stone-700 leading-[1.9] font-light max-w-[470px]"
+            className="font-sans text-[18px] text-stone-700 leading-[1.8] font-light max-w-[480px]"
             data-testid="hero-intro"
           >
             {t.hero.intro}
           </p>
 
+          {/* Buttons */}
           <div
             className={`flex flex-col sm:flex-row gap-4 ${
               isRTL ? "sm:flex-row-reverse" : ""
@@ -92,7 +94,7 @@ export default function Hero() {
                   .querySelector("#contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="border border-stone-500 px-10 py-5 uppercase tracking-[0.25em] text-[12px] hover:bg-black hover:text-white transition-all duration-300"
+              className="border border-stone-400 px-10 py-5 uppercase tracking-[0.25em] text-[12px] hover:border-black hover:text-black transition-all duration-300"
             >
               {t.hero.collab}
             </button>
@@ -100,9 +102,9 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom Line */}
+      {/* Bottom Divider + Scroll */}
       <motion.div
-        className={`mt-20 flex items-center ${
+        className={`mt-16 md:mt-20 flex items-center ${
           isRTL ? "flex-row-reverse" : ""
         }`}
         {...fadeUp(0.65)}
@@ -114,7 +116,7 @@ export default function Hero() {
           onClick={scrollToWork}
           className={`${
             isRTL ? "me-8 flex-row-reverse" : "ms-8"
-          } flex items-center gap-4 uppercase tracking-[0.28em] text-[12px] text-stone-700 hover:text-[#D96F45] transition-colors duration-300`}
+          } flex items-center gap-3 uppercase tracking-[0.28em] text-[12px] text-stone-600 hover:text-black transition-colors duration-300 shrink-0 group`}
         >
           {t.hero.scroll}
 
@@ -127,22 +129,22 @@ export default function Hero() {
               ease: "easeInOut",
             }}
           >
-            <ArrowDown size={16} strokeWidth={1.4} />
+            <ArrowDown size={14} strokeWidth={1.5} />
           </motion.span>
         </button>
       </motion.div>
 
       {/* Right Vertical Line */}
       <div
-        className={`absolute top-52 bottom-10 w-px bg-stone-300 hidden xl:block ${
-          isRTL ? "left-16" : "right-16"
+        className={`absolute top-32 bottom-20 w-px bg-stone-300 hidden xl:block ${
+          isRTL ? "left-20" : "right-20"
         }`}
       />
 
-      {/* Portfolio Index */}
+      {/* Vertical Portfolio Index */}
       <motion.span
-        className={`absolute top-52 text-[12px] tracking-[0.35em] uppercase text-stone-700 ${
-          isRTL ? "left-[68px]" : "right-[68px]"
+        className={`absolute top-40 text-[12px] tracking-[0.35em] uppercase text-stone-600 ${
+          isRTL ? "left-[88px]" : "right-[88px]"
         }`}
         style={{ writingMode: "vertical-rl" }}
         {...fadeUp(0.7)}
