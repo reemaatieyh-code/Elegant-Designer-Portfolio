@@ -22,7 +22,7 @@ export default function Hero() {
     >
       {/* Top label */}
       <motion.p
-        className="label-sm mb-10 md:mb-14"
+        className="font-sans text-[13px] tracking-[0.38em] uppercase text-stone-500 mb-10 md:mb-14"
         data-testid="hero-label"
         {...fadeUp(0.2)}
       >
