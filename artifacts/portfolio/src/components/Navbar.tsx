@@ -46,7 +46,7 @@ export default function Navbar() {
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-[17px] tracking-[0.12em] uppercase text-foreground hover:text-primary transition-colors duration-300 text-start"
+            className="font-serif text-[26px] tracking-[0.18em] uppercase text-orange-500 hover:text-black transition-colors duration-300 text-start"
           >
             {t.nav.logo}
           </button>
