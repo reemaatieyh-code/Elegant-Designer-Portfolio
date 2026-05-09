@@ -27,6 +27,11 @@ export default function Hero() {
         {...fadeUp(0.2)}
       >
         {t.hero.label}
+
+        <motion.div
+  className="w-10 h-px bg-[#D96F45] mb-14 md:mb-20"
+  {...fadeUp(0.25)}
+/>
       </motion.p>
 
       {/* Main grid — col-1 heading (left LTR / right RTL), col-2 intro (right LTR / left RTL) */}
