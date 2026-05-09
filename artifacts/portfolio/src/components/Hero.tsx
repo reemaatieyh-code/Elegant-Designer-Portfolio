@@ -20,22 +20,20 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative min-h-screen flex flex-col justify-end section-pad pt-36 overflow-hidden"
     >
-      {/* Top label */}
-      <motion.p
-        className="font-sans text-[13px] tracking-[0.38em] uppercase text-stone-600 mb-5 md:mb-7"
-        data-testid="hero-label"
-        {...fadeUp(0.2)}
-      >
-        {t.hero.label}
+    {/* Top label */}
+<motion.div {...fadeUp(0.2)} className="mb-14 md:mb-20">
+  <p
+    className="font-sans text-[13px] tracking-[0.38em] uppercase text-stone-600 mb-5"
+    data-testid="hero-label"
+  >
+    {t.hero.label}
+  </p>
 
-        <motion.div
-  className="w-10 h-px bg-[#D96F45] mb-14 md:mb-20"
-  {...fadeUp(0.25)}
-/>
-      </motion.p>
+  <div className="w-10 h-px bg-[#D96F45]" />
+</motion.div>
 
       {/* Main grid — col-1 heading (left LTR / right RTL), col-2 intro (right LTR / left RTL) */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-end">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-12 lg:gap-28 items-center">
         {/* Heading */}
         <motion.div {...fadeUp(0.35)} className={isRTL ? "text-right" : ""}>
           <h1
