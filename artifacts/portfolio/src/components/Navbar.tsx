@@ -114,7 +114,7 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             data-testid="mobile-menu"
-            className={`fixed inset-0 z-[9999] bg-[#F7F4EF] flex flex-col pt-32 pb-20 px-10 xl:hidden justify-end ${
+            className={`fixed inset-0 z-[9999] bg-[#F7F4EF] flex flex-col pt-32 pb-20 px-10 xl:hidden justify-center ${
               isRTL ? "items-end" : "items-start"
             }`}
             initial={{ opacity: 0 }}
