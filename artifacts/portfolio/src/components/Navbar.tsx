@@ -43,7 +43,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 h-[76px] grid grid-cols-2 lg:grid-cols-3 items-center">
+        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-12 xl:px-20 h-[76px] grid grid-cols-2 xl:grid-cols-3 items-center">
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
