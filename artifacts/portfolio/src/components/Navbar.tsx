@@ -47,12 +47,12 @@ export default function Navbar() {
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-[18px] md:text-[22px] lg:text-[24px] tracking-[0.24em] md:tracking-[0.3em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light whitespace-nowrap"
+            className="font-serif text-[16px] md:text-[18px] xl:text-[22px] tracking-[0.22em] md:tracking-[0.28em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light whitespace-nowrap"
           >
             {t.nav.logo}
           </button>
 
-          <ul className="hidden lg:flex items-center justify-center gap-10">
+          <ul className="hidden xl:flex items-center justify-center gap-10">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <button
@@ -66,7 +66,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden lg:flex items-center gap-4 justify-end rtl:justify-start">
+          <div className="hidden xl:flex items-center gap-4 justify-end rtl:justify-start">
             <button
               data-testid="lang-switcher"
               onClick={toggleLang}
@@ -87,7 +87,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="lg:hidden flex items-center gap-4 justify-end rtl:justify-start">
+          <div className="xl:hidden flex items-center gap-4 justify-end rtl:justify-start">
             <button
               data-testid="lang-switcher-mobile"
               onClick={toggleLang}
