@@ -22,7 +22,7 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative min-h-screen flex flex-col justify-end section-pad pt-32 overflow-hidden bg-[#F7F4EF]"
     >
-      {/* Top label */}
+      {/* Top Label */}
       <motion.div {...fadeUp(0.2)} className="mb-12 md:mb-16">
         <p
           className="font-sans text-[13px] tracking-[0.38em] uppercase text-stone-600 mb-5"
@@ -34,8 +34,8 @@ export default function Hero() {
         <div className="w-10 h-px bg-[#D96F45]" />
       </motion.div>
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_520px] gap-6 lg:gap-8 items-center">
+      {/* Main Hero Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_520px] gap-0 items-center">
         
         {/* Left Side — Name */}
         <motion.div
@@ -51,6 +51,7 @@ export default function Hero() {
             data-testid="hero-name"
           >
             {t.hero.line1}
+
             <br />
 
             <em className="not-italic text-[#D96F45]">
@@ -59,15 +60,15 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Right Side — Intro */}
+        {/* Right Side — Paragraph + Buttons */}
         <motion.div
-          className={`flex flex-col gap-8 ${
-            isRTL ? "items-end text-right" : ""
+          className={`flex flex-col gap-8 lg:-ml-40 ${
+            isRTL ? "items-end text-right lg:ml-0 lg:-mr-40" : ""
           }`}
           {...fadeUp(0.5)}
         >
           <p
-            className="font-sans text-[18px] text-stone-700 leading-[1.8] font-light max-w-[480px]"
+            className="font-sans text-[18px] text-stone-700 leading-[1.8] font-light max-w-[460px]"
             data-testid="hero-intro"
           >
             {t.hero.intro}
