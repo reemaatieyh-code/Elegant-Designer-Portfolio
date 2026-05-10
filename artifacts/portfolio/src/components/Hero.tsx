@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section
       data-testid="hero-section"
-      className="relative min-h-screen flex flex-col justify-end pt-32 pb-12 px-8 md:px-14 xl:px-20 overflow-hidden bg-[#F7F4EF]"
+      className="relative min-h-screen flex flex-col justify-center pt-20 md:pt-24 pb-12 px-8 md:px-14 xl:px-20 overflow-hidden bg-[#F7F4EF]"
     >
       {/* LEFT CONTENT WRAPPER */}
       <div className="lg:translate-x-16">
