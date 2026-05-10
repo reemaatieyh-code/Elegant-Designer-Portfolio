@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       data-testid="hero-section"
-      className="relative min-h-screen flex flex-col justify-center section-pad pt-10 overflow-hidden bg-[#F7F4EF]"
+      className="relative min-h-screen flex flex-col justify-end section-pad pt-32 overflow-hidden bg-[#F7F4EF]"
     >
       {/* Top label */}
       <motion.div {...fadeUp(0.2)} className="mb-12 md:mb-16">
@@ -35,38 +35,45 @@ export default function Hero() {
       </motion.div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_460px] gap-2 lg:gap-0 items-center -mt-20">
-        {/* Left Side */}
-        <motion.div {...fadeUp(0.35)} className={isRTL ? "text-right" : ""}>
+      <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_520px] gap-6 lg:gap-8 items-center">
+        
+        {/* Left Side — Name */}
+        <motion.div
+          {...fadeUp(0.35)}
+          className={isRTL ? "text-right" : ""}
+        >
           <h1
             className="font-light text-[clamp(5rem,10vw,10rem)] leading-[0.88] text-[#171311]"
             style={{
-              fontFamily: "'Canela', 'Cormorant Garamond', Georgia, serif",
+              fontFamily:
+                "'Canela', 'Cormorant Garamond', Georgia, serif",
             }}
             data-testid="hero-name"
           >
             {t.hero.line1}
             <br />
+
             <em className="not-italic text-[#D96F45]">
               {t.hero.line2}
             </em>
           </h1>
         </motion.div>
 
-        {/* Right Side */}
+        {/* Right Side — Intro */}
         <motion.div
-          className={`flex flex-col gap-6 -ml-20 ${
+          className={`flex flex-col gap-8 ${
             isRTL ? "items-end text-right" : ""
           }`}
           {...fadeUp(0.5)}
         >
           <p
-            className="font-sans text-[18px] text-stone-700 leading-[1.8] font-light max-w-[460px]"
+            className="font-sans text-[18px] text-stone-700 leading-[1.8] font-light max-w-[480px]"
             data-testid="hero-intro"
           >
             {t.hero.intro}
           </p>
 
+          {/* Buttons */}
           <div
             className={`flex flex-col sm:flex-row gap-4 ${
               isRTL ? "sm:flex-row-reverse" : ""
