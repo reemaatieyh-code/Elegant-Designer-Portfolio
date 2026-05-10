@@ -44,12 +44,12 @@ export default function Navbar() {
         <nav className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 h-[70px] grid grid-cols-3 items-center">
           {/* Logo — col 1: left in LTR, right in RTL (grid reverses) */}
           <button
-            data-testid="navbar-logo"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-[24px] tracking-[0.28em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light"
-          >
-            {t.nav.logo}
-          </button>
+  data-testid="navbar-logo"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  className="font-serif text-[18px] md:text-[24px] tracking-[0.28em] md:tracking-[0.32em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light whitespace-nowrap"
+>
+  {t.nav.logo}
+</button>
 
           {/* Center nav */}
           <ul className="hidden md:flex items-center justify-center gap-9">
