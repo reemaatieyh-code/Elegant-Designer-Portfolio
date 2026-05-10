@@ -152,15 +152,15 @@ export default function Hero() {
       />
 
       {/* VERTICAL TEXT */}
-      <motion.span
-        {...fadeUp(0.7)}
-        className={`absolute top-40 text-[12px] tracking-[0.35em] uppercase text-stone-600 ${
-          isRTL ? "left-[88px]" : "right-[88px]"
-        }`}
-        style={{ writingMode: "vertical-rl" }}
-      >
-        {t.hero.index}
-      </motion.span>
+<motion.span
+  {...fadeUp(0.7)}
+  className={`absolute top-[260px] text-[11px] tracking-[0.35em] uppercase text-stone-500 hidden sm:block ${
+    isRTL ? "left-6 md:left-[88px]" : "right-6 md:right-[88px]"
+  }`}
+  style={{ writingMode: "vertical-rl" }}
+>
+  {t.hero.index}
+</motion.span>
     </section>
   );
 }
