@@ -34,20 +34,20 @@ export default function Navbar() {
     <>
       <motion.header
         data-testid="navbar"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${
           scrolled
             ? "bg-background/95 backdrop-blur-sm border-b border-border"
-            : "bg-background/40 backdrop-blur-sm"
+            : "bg-background/70 backdrop-blur-sm"
         }`}
         initial={{ y: -70, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-12 xl:px-20 h-[76px] grid grid-cols-2 xl:grid-cols-3 items-center">
+        <nav className="max-w-[1400px] mx-auto px-5 md:px-8 xl:px-20 h-[76px] grid grid-cols-2 xl:grid-cols-3 items-center">
           <button
             data-testid="navbar-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-[16px] md:text-[18px] xl:text-[22px] tracking-[0.22em] md:tracking-[0.28em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light whitespace-nowrap"
+            className="font-serif text-[15px] sm:text-[16px] md:text-[18px] xl:text-[22px] tracking-[0.18em] md:tracking-[0.24em] xl:tracking-[0.3em] uppercase text-[#D96F45] hover:text-[#1D1715] transition-all duration-300 text-start font-light whitespace-nowrap"
           >
             {t.nav.logo}
           </button>
@@ -91,19 +91,20 @@ export default function Navbar() {
             <button
               data-testid="lang-switcher-mobile"
               onClick={toggleLang}
-              className="font-sans text-[12px] tracking-[0.15em] text-muted-foreground"
+              className="font-sans text-[12px] tracking-[0.15em] text-stone-600"
             >
-              <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
-              <span className="mx-1 text-border">|</span>
-              <span className={lang === "ar" ? "text-foreground" : ""}>AR</span>
+              <span className={lang === "en" ? "text-black" : ""}>EN</span>
+              <span className="mx-1 text-stone-300">|</span>
+              <span className={lang === "ar" ? "text-black" : ""}>AR</span>
             </button>
 
             <button
               data-testid="navbar-menu-toggle"
-              className="p-2 text-foreground"
+              className="p-2 text-black"
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
             >
-              {menuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+              {menuOpen ? <X size={26} strokeWidth={1.5} /> : <Menu size={26} strokeWidth={1.5} />}
             </button>
           </div>
         </nav>
@@ -113,7 +114,7 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             data-testid="mobile-menu"
-            className={`fixed inset-0 z-40 bg-[#F7F4EF] flex flex-col pb-20 px-10 lg:hidden justify-end ${
+            className={`fixed inset-0 z-[9999] bg-[#F7F4EF] flex flex-col pt-32 pb-20 px-10 xl:hidden justify-end ${
               isRTL ? "items-end" : "items-start"
             }`}
             initial={{ opacity: 0 }}
@@ -126,7 +127,7 @@ export default function Navbar() {
                 <motion.button
                   key={link.href}
                   onClick={() => handleNav(link.href)}
-                  className="font-serif text-5xl text-foreground hover:text-[#D96F45] transition-colors duration-300 leading-none"
+                  className="font-serif text-5xl text-black hover:text-[#D96F45] transition-colors duration-300 leading-none"
                   initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 + i * 0.06 }}
