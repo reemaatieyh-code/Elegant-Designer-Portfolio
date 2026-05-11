@@ -119,59 +119,134 @@ export default function CaseStudy() {
       </section>
 
       {/* Color palette */}
-      <section className="section-pad border-b border-border">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div {...fadeUp(0.1)}>
-            <p className="label-sm mb-10">{t.caseStudy.paletteLabel}</p>
-            <div className={`flex gap-4 flex-wrap ${isRTL ? "flex-row-reverse" : ""}`} data-testid="case-study-palette">
-              {project.palette.map((color) => (
-                <div key={color} className={`flex flex-col gap-3 ${isRTL ? "items-end" : ""}`}>
-                  <div className="w-24 h-24 md:w-32 md:h-32" style={{ backgroundColor: color }} />
-                  <p className="font-sans text-[11px] text-muted-foreground tracking-widest uppercase">{color}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+     {/* Project Gallery */}
+<section className="section-pad border-b border-border">
+  <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
+
+    {/* Hero Image */}
+    <motion.div {...fadeUp(0.1)}>
+      <img
+        src="/projects/koala-snacks/hero.jpg"
+        alt="Koala Snacks Packaging"
+        className="w-full h-auto object-cover"
+      />
+    </motion.div>
+
+    {/* Intro Text */}
+    <motion.div
+      {...fadeUp(0.15)}
+      className={`grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 lg:gap-24 ${
+        isRTL ? "lg:grid-flow-dense" : ""
+      }`}
+    >
+      <div className={`${isRTL ? "text-right" : ""}`}>
+        <p className="label-sm text-primary mb-5">
+          Packaging & Print Design
+        </p>
+
+        <h2 className="font-serif font-light text-[clamp(2.8rem,6vw,5rem)] leading-[0.92] text-foreground mb-8">
+          Koala Snacks Packaging Design
+        </h2>
+
+        <p className="font-sans text-[17px] leading-[1.9] text-muted-foreground font-light max-w-2xl">
+          A playful packaging and print design project created for a children’s
+          snack box experience, combining custom illustration, printed voucher
+          design, and branded packaging details.
+        </p>
+      </div>
+
+      <div
+        className={`border-border ${
+          isRTL
+            ? "border-r pr-10 text-right"
+            : "border-l pl-10"
+        } flex flex-col gap-8`}
+      >
+        <div>
+          <p className="label-sm mb-2">Category</p>
+          <p className="font-sans text-sm">
+            Packaging & Print Design
+          </p>
         </div>
-      </section>
 
-      {/* Mockup sections */}
-      <section className="section-pad border-b border-border">
-        <div className="max-w-[1400px] mx-auto flex flex-col gap-20">
-          <motion.div {...fadeUp(0.1)}>
-            <p className="label-sm mb-8">{t.caseStudy.overviewLabel}</p>
-            <div className="w-full h-[400px] md:h-[560px]" style={{ background: project.bgAlt }} data-testid="case-study-mockup-1" />
-          </motion.div>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border" {...fadeUp(0.15)}>
-            <div className="h-[320px] md:h-[400px]" style={{ background: project.bg, filter: "brightness(1.05)" }} data-testid="case-study-mockup-2" />
-            <div className="h-[320px] md:h-[400px]" style={{ background: project.bgAlt2 }} data-testid="case-study-mockup-3" />
-          </motion.div>
-
-          {/* Typography */}
-          <motion.div className={`border border-border p-12 md:p-20 flex flex-col gap-8 ${isRTL ? "items-end text-right" : ""}`} {...fadeUp(0.2)}>
-            <p className="label-sm">{t.caseStudy.typographyLabel}</p>
-            <div className="flex flex-col gap-4">
-              <p className="font-serif font-light text-[clamp(2.5rem,6vw,5rem)] text-foreground leading-none">
-                {isRTL ? "ا ب ت ث ج" : "Aa Bb Cc"}
-              </p>
-              <p className="font-sans text-sm text-muted-foreground font-light">{t.caseStudy.typographySerif}</p>
-            </div>
-            <div className="divider w-full" />
-            <div className="flex flex-col gap-2">
-              <p className="font-sans text-xl text-foreground font-light">
-                {isRTL ? "أ ب ت ث ج ح خ د ذ ر ز س" : "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm"}
-              </p>
-              <p className="font-sans text-sm text-muted-foreground font-light">{t.caseStudy.typographySans}</p>
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.1)}>
-            <p className="label-sm mb-8">{t.caseStudy.deliverablesLabel}</p>
-            <div className="w-full h-[480px]" style={{ background: project.bgAlt2, filter: "brightness(0.97)" }} data-testid="case-study-mockup-4" />
-          </motion.div>
+        <div>
+          <p className="label-sm mb-2">Role</p>
+          <p className="font-sans text-sm">
+            Packaging Design, Print Design, Illustration
+          </p>
         </div>
-      </section>
+
+        <div>
+          <p className="label-sm mb-2">Year</p>
+          <p className="font-sans text-sm">2024</p>
+        </div>
+
+        <div>
+          <p className="label-sm mb-2">Client</p>
+          <p className="font-sans text-sm">Koala Snacks</p>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Two Image Grid */}
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      {...fadeUp(0.2)}
+    >
+      <img
+        src="/projects/koala-snacks/front.jpg"
+        alt="Packaging Front"
+        className="w-full h-full object-cover"
+      />
+
+      <img
+        src="/projects/koala-snacks/back.jpg"
+        alt="Packaging Back"
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+
+    {/* Detail Images */}
+    <motion.div
+      className="grid grid-cols-2 md:grid-cols-4 gap-6"
+      {...fadeUp(0.25)}
+    >
+      <img
+        src="/projects/koala-snacks/detail-1.jpg"
+        alt=""
+        className="w-full aspect-square object-cover"
+      />
+
+      <img
+        src="/projects/koala-snacks/detail-2.jpg"
+        alt=""
+        className="w-full aspect-square object-cover"
+      />
+
+      <img
+        src="/projects/koala-snacks/detail-3.jpg"
+        alt=""
+        className="w-full aspect-square object-cover"
+      />
+
+      <img
+        src="/projects/koala-snacks/detail-4.jpg"
+        alt=""
+        className="w-full aspect-square object-cover"
+      />
+    </motion.div>
+
+    {/* Final Showcase */}
+    <motion.div {...fadeUp(0.3)}>
+      <img
+        src="/projects/koala-snacks/final.jpg"
+        alt="Final Packaging Presentation"
+        className="w-full h-auto object-cover"
+      />
+    </motion.div>
+
+  </div>
+</section>
 
       {/* Prev / Next */}
       <section className="border-b border-border">
